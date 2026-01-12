@@ -2,15 +2,15 @@
 - name: INSTALLATION_NAME
   value: 'Chatwoot'
 - name: LOGO_THUMBNAIL
-  value: '/brand-assets/logo_thumbnail.svg'
+  value: '/brand-assets/logo-carxtreme.png'
 - name: LOGO
-  value: '/brand-assets/logo.svg'
+  value: '/brand-assets/logo-carxtreme.png'
 - name: LOGO_DARK
-  value: '/brand-assets/logo_dark.svg'
+  value: '/brand-assets/logo-carxtreme.png'
 - name: BRAND_URL
-  value: 'https://www.chatwoot.com'
+  value: 'https://autoradiocarxtreme.com/'
 - name: WIDGET_BRAND_URL
-  value: 'https://www.chatwoot.com'
+  value: 'https://autoradiocarxtreme.com/'
 - name: BRAND_NAME
   value: 'Chatwoot'
 - name: TERMS_URL

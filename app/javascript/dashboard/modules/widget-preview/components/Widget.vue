@@ -3,7 +3,6 @@ import WidgetHead from './WidgetHead.vue';
 import WidgetBody from './WidgetBody.vue';
 import WidgetFooter from './WidgetFooter.vue';
 import InputRadioGroup from 'dashboard/routes/dashboard/settings/inbox/components/InputRadioGroup.vue';
-import { useBranding } from 'shared/composables/useBranding';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -55,12 +54,6 @@ export default {
       type: String,
       default: '',
     },
-  },
-  setup() {
-    const { replaceInstallationName } = useBranding();
-    return {
-      replaceInstallationName,
-    };
   },
   data() {
     return {
@@ -163,11 +156,7 @@ export default {
               :src="globalConfig.logoThumbnail"
             />
             <span>
-              {{
-                replaceInstallationName(
-                  $t('INBOX_MGMT.WIDGET_BUILDER.BRANDING_TEXT')
-                )
-              }}
+              Powered by {{ globalConfig.brandName }}
             </span>
           </a>
         </div>

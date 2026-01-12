@@ -1,6 +1,4 @@
 <script>
-import { useBranding } from 'shared/composables/useBranding';
-
 const {
   LOGO_THUMBNAIL: logoThumbnail,
   BRAND_NAME: brandName,
@@ -13,12 +11,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  setup() {
-    const { replaceInstallationName } = useBranding();
-    return {
-      replaceInstallationName,
-    };
   },
   data() {
     return {
@@ -68,7 +60,7 @@ export default {
         :src="globalConfig.logoThumbnail"
       />
       <span>
-        {{ replaceInstallationName($t('POWERED_BY')) }}
+        Powered by {{ globalConfig.brandName }}
       </span>
     </a>
   </div>

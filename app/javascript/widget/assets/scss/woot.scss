@@ -103,6 +103,13 @@ select:not(.reset-base) {
   font-family: inherit;
 }
 
+.cx-background, cx-background {
+  background-image: url("/images/img/bg-carxtreme.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
 p code {
   @apply bg-n-slate-3 dark:bg-n-alpha-2 text-n-slate-11 text-sm inline-block rounded py-px px-1;
 }

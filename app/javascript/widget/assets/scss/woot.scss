@@ -91,7 +91,7 @@ textarea {
 }
 
 select:not(.reset-base) {
-  @apply bg-n-background dark:bg-n-alpha-2 w-full p-2.5 border-none outline outline-1 outline-offset-[-1px] outline-n-weak rounded-lg text-n-slate-12 text-base ltr:pr-10 rtl:pl-10 font-normal ltr:bg-[right_-1.6rem_center] rtl:bg-[left_-1.6rem_center] focus:outline-n-brand focus:ring-1 focus:ring-n-brand !bg-[url('https://res.cloudinary.com/dw1elpz7w/image/upload/v1768518138/bg-carxtreme_mrlodf.jpg')] !bg-no-repeat !bg-cover !bg-center;
+  @apply bg-n-background dark:bg-n-alpha-2 w-full p-2.5 border-none outline outline-1 outline-offset-[-1px] outline-n-weak rounded-lg text-n-slate-12 text-base ltr:pr-10 rtl:pl-10 font-normal ltr:bg-[right_-1.6rem_center] rtl:bg-[left_-1.6rem_center] focus:outline-n-brand focus:ring-1 focus:ring-n-brand;
 
   -moz-appearance: none;
   -webkit-appearance: none;

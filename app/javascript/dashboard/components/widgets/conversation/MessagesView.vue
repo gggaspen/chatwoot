@@ -473,7 +473,7 @@ export default {
     />
     <MessageList
       ref="conversationPanelRef"
-      class="conversation-panel flex-shrink flex-grow basis-px flex flex-col overflow-y-auto relative h-full m-0 pb-4"
+      class="conversation-panel flex-shrink flex-grow basis-px flex flex-col overflow-y-auto relative h-full m-0 pb-4 !bg-[url('https://res.cloudinary.com/dw1elpz7w/image/upload/v1768518138/bg-carxtreme_mrlodf.jpg')] !bg-no-repeat !bg-cover !bg-center"
       :current-user-id="currentUserId"
       :first-unread-id="unReadMessages[0]?.id"
       :is-an-email-channel="isAnEmailChannel"

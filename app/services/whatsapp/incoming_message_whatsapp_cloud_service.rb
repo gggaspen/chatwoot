@@ -33,9 +33,8 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
     download_url = url_response.parsed_response['url']
     Rails.logger.info "[WHATSAPP] Downloading attachment from: #{download_url}"
 
-    # WhatsApp Cloud returns a signed URL that doesn't need auth headers
-    # The lookaside.fbsbx.com URLs already contain authentication in the query params
-    Down.download(download_url)
+    # WhatsApp Cloud media URLs require the Authorization header for download
+    Down.download(download_url, headers: { 'Authorization' => "Bearer #{inbox.channel.provider_config['api_key']}" })
   rescue StandardError => e
     Rails.logger.error "[WHATSAPP] Error downloading attachment: #{e.message}"
     nil

@@ -9,15 +9,35 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
   end
 
   def download_attachment_file(attachment_payload)
-    url_response = HTTParty.get(
-      inbox.channel.media_url(
-        attachment_payload[:id],
-        inbox.channel.provider_config['phone_number_id']
-      ),
-      headers: inbox.channel.api_headers
+    media_url = inbox.channel.media_url(
+      attachment_payload[:id],
+      inbox.channel.provider_config['phone_number_id']
     )
-    # This url response will be failure if the access token has expired.
-    inbox.channel.authorization_error! if url_response.unauthorized?
-    Down.download(url_response.parsed_response['url'], headers: inbox.channel.api_headers) if url_response.success?
+    Rails.logger.info "[WHATSAPP] Fetching media URL: #{media_url}"
+
+    url_response = HTTParty.get(media_url, headers: inbox.channel.api_headers)
+
+    Rails.logger.info "[WHATSAPP] Media URL response status: #{url_response.code}"
+
+    if url_response.unauthorized?
+      Rails.logger.error "[WHATSAPP] Authorization error fetching media URL"
+      inbox.channel.authorization_error!
+      return nil
+    end
+
+    unless url_response.success?
+      Rails.logger.error "[WHATSAPP] Failed to fetch media URL: #{url_response.body}"
+      return nil
+    end
+
+    download_url = url_response.parsed_response['url']
+    Rails.logger.info "[WHATSAPP] Downloading attachment from: #{download_url}"
+
+    # WhatsApp Cloud returns a signed URL that doesn't need auth headers
+    # The lookaside.fbsbx.com URLs already contain authentication in the query params
+    Down.download(download_url)
+  rescue StandardError => e
+    Rails.logger.error "[WHATSAPP] Error downloading attachment: #{e.message}"
+    nil
   end
 end

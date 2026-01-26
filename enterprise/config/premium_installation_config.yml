@@ -1,6 +1,6 @@
 # ------- Branding Related Config ------- #
 - name: INSTALLATION_NAME
-  value: 'Chatwoot'
+  value: 'CarXtreme'
 - name: LOGO_THUMBNAIL
   value: '/brand-assets/logo-carxtreme.png'
 - name: LOGO
